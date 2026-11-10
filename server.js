@@ -37,6 +37,7 @@ app.get("/api/v1/books", (req, res) => {
     db.collection("books").find(query).toArray().then((result) => {
         res.status(200).json({"messsage":"Books fetched successfully","data":result});
     }).catch((err) => {
+        console.log("You got error in getting 'api/v1/books'");
         err.message="Problem in fetching books";
         throw error;
     });
